@@ -1,9 +1,10 @@
 # Current Progress
 - [x] reproduction of flux heatmap and location line plot, with time as x-axis
-- [] replace time axis with MLAT
-- [] interpolation between energy band 
+- [ ] replace time axis with MLAT
+- [ ] interpolation between space craft observed energy band
 
 # Brief Introduction
+
 ## Quick Set Up
 1. clone repo
 2. create `data` folder under cloned folder `space_science`.
@@ -13,6 +14,9 @@
     ```
 3. put `.dat` files to `space_science/data` folder.
 4. run the `reproduc_plots_for_all_files.m` script with matlab run button. (it will reproduce all figures and dump into `./results` folder)
+
+## Assumed Conditions
+- all `.dat` files use suffix `.per.dat` or `.flux.dat`   
 
 ## Folder Structure
 - All `.dat` files should go to `./data`
