@@ -1,5 +1,5 @@
 
-function plot_raw_data(file_name_prefix)
+function[fig] = plot_raw_data(file_name_prefix, screen_index)
 
 %-----Load data-----
 location_data = readtable(strcat('./data/', file_name_prefix, '.L.dat'), 'VariableNamingRule', 'preserve');
@@ -25,7 +25,7 @@ ft.Format = 'hh:mm:ss';
 % flux_data{:,:}(ismissing(flux_data{:,:}))=0;
 
 %-----Configure figure panel-----
-[left, bottom, width, height] = get_window_panel();
+[left, bottom, width, height] = get_window_panel(screen_index);
 fig1 = figure('Name', file_name_prefix, 'Position', [left bottom width height]);
 figure(fig1)
 tiledlayout(2, 1)
@@ -73,4 +73,5 @@ hold off
 ax.FontSize = 20;
 legend
 
+fig = gcf;
 end
