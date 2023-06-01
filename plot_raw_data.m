@@ -3,7 +3,12 @@ function plot_raw_data(file_name_prefix)
 
 %-----Load data-----
 location_data = readtable(strcat('./data/', file_name_prefix, '.L.dat'), 'VariableNamingRule', 'preserve');
-flux_data = readtable(strcat('./data/', file_name_prefix, '.flux.dat'), 'VariableNamingRule', 'preserve');
+
+if isfile(strcat('./data/', file_name_prefix, '.flux.dat'))
+    flux_data = readtable(strcat('./data/', file_name_prefix, '.flux.dat'), 'VariableNamingRule', 'preserve');
+else
+    flux_data = readtable(strcat('./data/', file_name_prefix, '.per.dat'), 'VariableNamingRule', 'preserve');
+end
 
 t = seconds(location_data.time);
 t.Format = 'hh:mm:ss';
